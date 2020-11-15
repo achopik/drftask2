@@ -34,30 +34,18 @@ class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
         )
 
 
-class PartnerSerializer(serializers.HyperlinkedModelSerializer):
-    """
-    Serializer for a Company short representation in partners list
-    """
-    class Meta:
-        model = Company
-        fields = (
-            'url',
-            'name',
-        )
-
-
 class CompanySerializer(serializers.ModelSerializer):
     """
     Serializer for a Company model
     """
 
     employees = EmployeeSerializer(many=True, read_only=True)
-    partners = PartnerSerializer(many=True, read_only=True)
-    partners_write = serializers.SlugRelatedField(queryset=Company.objects.all(),
-                                                  many=True,
-                                                  slug_field='name',
-                                                  label='Партнеры',
-                                                  write_only=True)
+
+    # Short partner info only for reading
+    partners = serializers.SlugRelatedField(queryset=Company.objects.all(),
+                                            many=True,
+                                            slug_field='name',
+                                            label='Партнеры')
 
     class Meta:
         model = Company
@@ -70,5 +58,4 @@ class CompanySerializer(serializers.ModelSerializer):
             'type',
             'employees',
             'partners',
-            'partners_write'
         )
