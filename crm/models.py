@@ -7,7 +7,7 @@ class Company(models.Model):
     """
 
     name = models.CharField(max_length=250, blank=False, unique=True, verbose_name='Название')
-    address = models.CharField(max_length=250, blank=False, verbose_name='Адресс')
+    address = models.CharField(max_length=250, blank=False, verbose_name='Адрес')
     foundation_date = models.DateField(blank=False, verbose_name='Дата создания')
     type = models.CharField(max_length=150, verbose_name='Тип')
     partners = models.ManyToManyField('self', verbose_name='Партнеры')
