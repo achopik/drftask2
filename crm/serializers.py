@@ -35,6 +35,9 @@ class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class PartnerSerializer(serializers.HyperlinkedModelSerializer):
+    """
+    Serializer for a Company short representation in partners list
+    """
     class Meta:
         model = Company
         fields = (
