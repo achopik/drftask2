@@ -1,0 +1,66 @@
+{% extends "registration/auth_base.html" %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+
+
+{% block head %}
+
+<link rel="stylesheet" href="../../static/styles/login.css">
+
+{% endblock head %}
+
+{% block links %}
+
+<li class="nav__link"><a href=""><p>Регистрация</p></a></li>
+
+{% endblock links %}
+
+
+{% block content %}
+{% if form.errors %}
+<div class="login__error">
+  <p>Введен неверный логин или пароль. Повторите попытку.</p>
+</div>
+{% endif %}
+
+{% if next %}
+<div class="login__message">
+  {% if user.is_authenticated %}
+    <p>У вас нет доступа к данной странице :(</p>
+  {% else %}
+    <p>Пожалуйста, войдите, что бы просматривать эту страницу</p>
+  {% endif %}
+</div>
+{% endif %}
+<div class="login__greeting"></div>
+<article class="section__content center column">
+<div class="form__wrapper">
+<form class="login__form center column" method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<div class="form__inner column">
+
+<div class="form__elem column center">
+  <p class="elem__label">Имя пользователя: </p>
+  <p class="elem__input">{{ form.username }}</p>
+</div>
+
+<div class="form__elem column center">
+  <p class="elem__label">Пароль: </p>
+  <p class="elem__input">{{ form.password }}</p>
+</div>
+</div>
+
+<input class="form__button"type="submit" value="Войти" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+</div>
+{# Assumes you setup the password_reset view in your URLconf #}
+<div class="login__reset">
+  <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+</div>
+</article>
+
+
+{% endblock %}

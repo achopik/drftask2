@@ -1,44 +1,33 @@
+{% load static %}
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>{% block title %}{% endblock %}</title>
-  <link rel="icon" href="../res/img/favicon.ico">
-  <link rel="stylesheet" href="../res/styles/base.css">
-  <link rel="stylesheet" href="../res/styles/content.css">
+  <link rel="icon" href="{% static 'img/favicon.ico' %}">
+  <link rel="stylesheet" href="{% static '/styles/base.css' %}">
+  {% block head %} {% endblock head %}
 </head>
-    <header class="center column">
-      <nav class="auth__nav center column">
-        <div class="logo"><img alt="drftask2" src="../res/img/logo.png"></div>
-        <div class="greeting">
-          <p class="center">Hello, { user.username if user else 'guest' }</p>
-        </div>
-        <div class="nav__links column">
-          <ul class="center row">
-            <li class="nav__link"><a href=""><p>Logout</p></a></li>
-            <li class="nav__link"><a href=""><p>Logout</p></a></li>
-            <li class="nav__link"><a href=""><p>Logout</p></a></li>
+<body>
+    <header class="row space">
+        <div class="logo"><a href=""><img alt="drftask2" src="{% static '/img/logo.png' %}"></a></div>
+      <nav class="header__links space center row">
+          <ul class="link__list row">
+            {% block links %} {% endblock links %}
           </ul>
-        </div>
-      </nav>
-      <div class="nav__line"></div>
+        </nav>
     </header>
 
-    <section class="main__section">
+    <main class="main__section evenly center column">
       {% block content %} {% endblock %}
-    </section>
+    </main>
 
-    <footer class="center column">
+    <footer class="row center">
       <div class="footer__github column">
-        <a href="https://github.com/achopik/drftask2"><img src="../res/img/github.png>"</a>
-        <a href="https://github.com/achopik/drftask2"><p>Follow repo on Github</p></a>
-      </div>
-      <div class="footer__about column">
-        <p>DRF example</p>
-        <p>2020</p>
+        <a href="https://github.com/achopik/drftask2"><img src="{% static '/img/github.png' %}" alt="github"></a>
       </div>
     </footer>
-
 
 </body>
 </html>

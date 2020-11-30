@@ -1,0 +1,187 @@
+/* For base templates in project */
+
+@font-face {
+    font-family: Roboto;
+    src: url(../../static/fonts/Roboto-Medium.ttf);
+}
+
+:root {
+
+    --primary-block-color: #0f2f67;
+    --primary-content-color: #16534a;
+    --primary-shadow-color: #aeb7bc;
+
+}
+
+/* Common */
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.evenly {
+
+    justify-content: space-evenly;
+
+}
+
+.space {
+    justify-content: space-between;
+}
+
+.around {
+    justify-content: space-around;
+}
+
+.wrap {
+
+    flex-wrap: wrap;
+
+}
+
+body {
+
+    font-family: Roboto, 'sans-serif';
+    font-size: 14pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+
+    margin: 0;
+    padding: 0;
+
+
+}
+
+ul,
+li,
+h1,
+h2,
+a,
+p {
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: var(--primary-content-color)
+
+}
+
+a:visited {
+
+    color: inherit
+
+}
+
+.nav__link:first-child {
+
+    margin-left: 10px
+
+}
+
+.nav__link a {
+
+    color: aliceblue;
+
+}
+
+.main__section {
+
+    min-height: calc(100vh - 195px);
+    padding-bottom: 20px;
+    padding-top: 20px
+
+}
+
+
+
+.nav__link:hover {
+
+    transition: .3s linear;
+    background-color: #454547;
+
+}
+
+
+header {
+    padding: 10px  20px 10px 20px ;
+    border-radius: 0 0 10px 10px;
+    background-color: var(--primary-block-color);
+    color: var(--primary-content-color);
+    box-shadow: 0px 0px 5px 2px var(--primary-shadow-color);
+
+
+}
+
+header .logo {
+
+    border: 2px solid black;
+    border-radius: 10px
+
+}
+
+.link__list {
+
+    background-color: wheat;
+
+}
+
+.nav__link {
+
+    margin-right: 10px
+
+}
+
+main {
+
+    padding: 5px;
+
+}
+
+article {
+
+    box-shadow: 0px 0px 5px 2px var(--primary-shadow-color);
+    padding: 10px;
+
+
+}
+
+
+footer {
+
+    align-items: stretch;
+    border-radius: 10px 10px 0 0;
+    background-color: var(--primary-block-color);
+    color: var(--primary-content-color);
+    box-shadow: var(--primary-shadow-color);
+    width: 100vw;
+
+
+}
+
+.footer__github {
+
+    align-self: flex-start;
+
+}
+
+.footer__about {
+
+    align-self: center;
+    position: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}

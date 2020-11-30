@@ -1,0 +1,20 @@
+{% extends "registration/auth_base.html" %}
+
+{% block title %}Выход{% endblock title %}
+
+
+{% block links %}
+
+<li class="nav__link"><a href=""><p>Регистрация</p></a></li>
+<li class="nav__link"><a href="{% url 'login'%}"><p>Вход</p></a></li>
+
+{% endblock links %}
+
+
+{% block content %}
+<article class="center column">
+  <div class="logout__message">
+    <p>Вы успешно вышли из аккаунта</p>
+  </div>
+</article>
+{% endblock %}
